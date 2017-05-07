@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>HAT Talks Countdown</title>
+	<style>
+		body {
+			overflow: hidden;
+			text-align: center;
+		}
+
+		h2 {
+			font-size: 360%;
+		}
+
+		p {
+			text-transform: uppercase;
+			font-size: 180%;
+			transform: scale(0);
+		}
+
+		.button {
+			cursor: pointer;
+			z-index: 0;
+			transition: transform 0.6s ease-in-out;
+			padding: 5px;
+		}
+
+		.button:hover {
+			transform: scale(1.5) rotate(360deg);
+		}
+
+		.button:active {
+			transition: transform 0.05s ease-in-out;
+			transform: scale(1.5) rotate(360deg) translateY(10px);
+		}
+
+		#rain {
+			position: fixed;
+			top: 0;
+			left: 0;
+		}
+
+		.drop {
+			position: fixed;
+			transform: translate(-50%, -100%);
+		}
+	</style>
+</head>
+
+<body>
+	<h1>¿Cuánto falta?</h1>
+	<h2>2d 20h 34m 12s</h2>
+	<p></p>
+	<div id="rain"></div>
+	<img class="button" src="img/face-edu.png" />
+	<img class="button" src="img/face-pombo.png" />
+	<img class="button" src="img/face-edu.png" />
+	<img class="button" src="img/face-pombo.png" />
+
+	<audio src="music/canttouch.mp3" preload></audio>
+	<audio src="music/friends.mp3" preload></audio>
+	<audio src="music/macho.mp3" preload></audio>
+	<audio src="music/mmmbop.mp3" preload></audio>
+	<audio src="music/never.mp3" preload volume="0.5"></audio>
+	<audio src="music/wannabe.mp3" preload></audio>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/plugins/TextPlugin.min.js"></script>
+	<script src="js/app.js"></script>
+</body>
+
+</html>
