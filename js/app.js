@@ -1,3 +1,5 @@
+NodeList.prototype.slice = Array.prototype.slice;
+
 const speed = 0.3; // viewport height per second
 const freq = 3; // new drops per second
 let currentFace = null;
@@ -12,6 +14,11 @@ const texts = [
   "🤜 Pshhs 🤛"
 ];
 
+const audios = document.querySelectorAll("audio").slice().sort(function() {
+  return .5 - Math.random();
+});
+let lastAudioPlayed = 0;
+
 document.addEventListener("DOMContentLoaded", () => {
   const buttons = document.querySelectorAll(".button");
   buttons.forEach(button => button.addEventListener("click", onClick));
@@ -24,10 +31,9 @@ function onClick(e) {
   const button = e.target;
   currentFace = button["src"];
 
-  const audios = document.querySelectorAll("audio");
   audios.forEach(audio => audio.pause());
-  const i = Math.floor(Math.random() * audios.length);
-  audios[i].play();
+  lastAudioPlayed = (lastAudioPlayed + 1) % audios.length;
+  audios[lastAudioPlayed].play();
 }
 
 function newDrop() {
