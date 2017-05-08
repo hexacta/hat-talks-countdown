@@ -1,6 +1,7 @@
 const speed = 0.3; // viewport height per second
 const freq = 3; // new drops per second
 let currentFace = null;
+const deadline = new Date(2017, 4, 17, 17, 00);
 const texts = [
   "🙌 Novedades 🙌",
   "🍺 Cervezas 🍺",
@@ -15,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const buttons = document.querySelectorAll(".button");
   buttons.forEach(button => button.addEventListener("click", onClick));
   setInterval(newDrop, 1000 / freq);
+  tick(); setInterval(tick, 1000);
   initTextRotator();
 });
 
@@ -79,4 +81,14 @@ function initTextRotator() {
       .to("p", 1, { scale: 2 })
       .to("p", 1, { scale: 0 });
   });
+}
+
+function tick() {  
+  const t = deadline - new Date();
+  const seconds = Math.floor( (t/1000) % 60 );
+  const minutes = Math.floor( (t/1000/60) % 60 );
+  const hours = Math.floor( (t/(1000*60*60)) % 24 );
+  const days = Math.floor( t/(1000*60*60*24) );
+  const count = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  document.getElementById("countdown").innerText = count;
 }
