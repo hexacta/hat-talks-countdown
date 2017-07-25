@@ -3,7 +3,7 @@ NodeList.prototype.slice = Array.prototype.slice;
 const speed = 0.3; // viewport height per second
 const freq = 3; // new drops per second
 let currentFace = null;
-const deadline = new Date(2017, 8, 8, 17, 00);
+const deadline = new Date(2017, 7, 8, 17, 00);
 const texts = [
   "🙌 Novedades 🙌",
   "🍺 Cervezas 🍺",
